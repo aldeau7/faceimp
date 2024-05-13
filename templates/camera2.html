@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera App</title>
+</head>
+<body>
+    <video id="videoElement" autoplay></video>
+    <button onclick="captureImage()">Capture Image</button>
+    <div id="imageContainer"></div>
+    <div id="actionMenu">
+        <button onclick="saveImage()">Save</button>
+        <button onclick="sendToGlobalGallery()">Send to Global Gallery</button>
+        <!-- Add other social media buttons as needed -->
+    </div>
+
+    <script>
+        const videoElement = document.getElementById('videoElement');
+        const imageContainer = document.getElementById('imageContainer');
+
+        // Function to capture an image from the video feed
+        function captureImage() {
+            const canvas = document.createElement('canvas');
+            canvas.width = videoElement.videoWidth;
+            canvas.height = videoElement.videoHeight;
+            canvas.getContext('2d').drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+            const img = new Image();
+            img.src = canvas.toDataURL('image/png');
+            imageContainer.innerHTML = '';
+            imageContainer.appendChild(img);
+        }
+
+        // Function to save the captured image
+        function saveImage() {
+            // Implement saving functionality here
+        }
+
+        // Function to send the captured image to the global gallery
+        function sendToGlobalGallery() {
+            const imageData = imageContainer.firstChild.src;
+            // Implement sending functionality here (e.g., using fetch to send the image data to the server)
+        }
+    </script>
+</body>
+</html>

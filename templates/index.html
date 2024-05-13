@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressionist Portrait</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <div id="background"></div>
+    <script src="static/background.js"></script>
+
+    <img src="static/logo_home.svg"></img>
+    
+    <div class="container">
+        <div class="container">
+            <button class="blurry-button" id="camera">CAMERA</button>        
+            <button class="blurry-button" id="gallery">GALLERY</button>
+            <button class="blurry-button" id="about">ABOUT</button>
+        </div>
+    </div>
+
+    <script>
+        const button1 = document.getElementById('camera');
+        const button2 = document.getElementById('gallery');
+        const button3 = document.getElementById('about');
+
+        button1.addEventListener('click', function() {
+            window.location.href = 'camera';
+        });
+        button2.addEventListener('click', function() {
+            window.location.href = 'gallery';
+        });
+        button3.addEventListener('click', function() {
+            window.location.href = 'about';
+        });
+
+    </script>
+
+</body>
+</html>
