@@ -1,32 +1,22 @@
-const video = document.getElementById('videoElement');
-const captureButton = document.getElementById('captureButton');
-
-// Access the webcam stream
-navigator.mediaDevices.getUserMedia({ video: true })
-    .then(stream => {
-        video.srcObject = stream;
-    })
-    .catch(error => {
-        console.error('Error accessing webcam:', error);
-    });
-
-// Function to capture image from webcam
+// Function to capture image from the video feed
 function captureImage() {
+    const img = document.getElementById('bg');
     const canvas = document.createElement('canvas');
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
+    canvas.width = img.width;
+    canvas.height = img.height;
     const context = canvas.getContext('2d');
-    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    context.drawImage(img, 0, 0, canvas.width, canvas.height);
     
     // Convert canvas to data URL
-    const dataURL = canvas.toDataURL('image/jpg');
+    const dataURL = canvas.toDataURL('image/png');
     
     // Create a link element to download the image
     const link = document.createElement('a');
     link.href = dataURL;
-    link.download = 'captured_image.jpg';
+    link.download = 'captured_image.png';
     link.click();
 }
 
 // Event listener for the capture button
+const captureButton = document.getElementById('captureButton');
 captureButton.addEventListener('click', captureImage);

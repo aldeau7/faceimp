@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +8,10 @@
 </head>
 <body>
     <div class="container">
-        <video id="videoElement" autoplay></video>
+        <img id="bg" class="center" src="{{ url_for('video_feed') }}"></img>
+        <canvas id="canvasElement"></canvas>
         <button id="captureButton"></button>
-        <script src="static/script.js"></script>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
     </div>
 </body>
 </html>
