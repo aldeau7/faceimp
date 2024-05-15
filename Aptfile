@@ -1,3 +1,7 @@
-ffmpeg libsm6 libxext6  -y
-libgl1-mesa-glx
+libglso1
+libgl.so.1
+libsm6
+libxrender1
+libfontconfig1
+libice6
 
